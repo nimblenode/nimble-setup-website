@@ -1,2 +1,3 @@
-# Nimble Node
-The official nimble node website
+# NimbeNODE
+
+This web interface assists with commissioning wifi on the nimblenode.
