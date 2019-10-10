@@ -1,0 +1,42 @@
+$mobile: 40em;
+$tablet: 64em;
+
+@font-face {
+  font-family: "HelveticaNeueRegular";
+  src: url("/static/assets/fonts/helvetica-neue/regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "HelveticaNeueCondensedBlack";
+  src: url("/static/assets/fonts/helvetica-neue/condensed-black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "HelveticaNeueUltraLight";
+  src: url("/static/assets/fonts/helvetica-neue/ultralight.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "HelveticaNeueLight";
+  src: url("/static/assets/fonts/helvetica-neue/light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "HelveticaNeueThin";
+  src: url("/static/assets/fonts/helvetica-neue/thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "HelveticaNeueBold";
+  src: url("/static/assets/fonts/helvetica-neue/bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "HelveticaNeueMedium";
+  src: url("/static/assets/fonts/helvetica-neue/medium.ttf") format("truetype");
+}
+
+* {
+  font-family: "HelveticaNeueRegular";
+  box-sizing: border-box;
+}

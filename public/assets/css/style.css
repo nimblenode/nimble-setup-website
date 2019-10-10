@@ -1,0 +1,1267 @@
+@font-face {
+  font-family: "HelveticaNeueRegular";
+  src: url("/static/assets/fonts/helvetica-neue/regular.ttf") format("truetype"); }
+@font-face {
+  font-family: "HelveticaNeueCondensedBlack";
+  src: url("/static/assets/fonts/helvetica-neue/condensed-black.ttf") format("truetype"); }
+@font-face {
+  font-family: "HelveticaNeueUltraLight";
+  src: url("/static/assets/fonts/helvetica-neue/ultralight.ttf") format("truetype"); }
+@font-face {
+  font-family: "HelveticaNeueLight";
+  src: url("/static/assets/fonts/helvetica-neue/light.ttf") format("truetype"); }
+@font-face {
+  font-family: "HelveticaNeueThin";
+  src: url("/static/assets/fonts/helvetica-neue/thin.ttf") format("truetype"); }
+@font-face {
+  font-family: "HelveticaNeueBold";
+  src: url("/static/assets/fonts/helvetica-neue/bold.ttf") format("truetype"); }
+@font-face {
+  font-family: "HelveticaNeueMedium";
+  src: url("/static/assets/fonts/helvetica-neue/medium.ttf") format("truetype"); }
+@-webkit-keyframes sk-bounce {
+  0%, 100% {
+    -webkit-transform: scale(0); }
+  50% {
+    -webkit-transform: scale(1); } }
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0); }
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1); } }
+* {
+  font-family: "HelveticaNeueRegular";
+  box-sizing: border-box; }
+
+html, body {
+  background-color: #F7F7F7; }
+
+strong, .emphasize {
+  font-family: "HelveticaNeueBold"; }
+
+.center {
+  text-align: center; }
+
+header {
+  position: absolute;
+  width: 100%;
+  min-height: 5.5rem;
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.1);
+  z-index: 2; }
+  header div[data-name="wrapper"] {
+    max-width: 64em;
+    width: 85%;
+    margin: 0 auto; }
+    header div[data-name="wrapper"] > a {
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: 0.7rem; }
+      @media (max-width: 40em) {
+        header div[data-name="wrapper"] > a {
+          display: block; } }
+      header div[data-name="wrapper"] > a > div {
+        width: 3.5rem;
+        height: 3.5rem;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url(/static/assets/images/header-logo.png); }
+        @media (max-width: 40em) {
+          header div[data-name="wrapper"] > a > div {
+            margin: 0 auto; } }
+    header div[data-name="wrapper"] div[data-name="links"] {
+      display: inline-block;
+      vertical-align: middle;
+      float: right;
+      margin-top: 1.7rem; }
+      @media (max-width: 40em) {
+        header div[data-name="wrapper"] div[data-name="links"] {
+          float: none;
+          width: 100%;
+          text-align: center;
+          margin-bottom: 2rem; } }
+      header div[data-name="wrapper"] div[data-name="links"] a {
+        color: #FFFFFF;
+        text-decoration: none;
+        margin-left: 3.5rem;
+        margin-bottom: 0.5rem;
+        display: inline-block; }
+        @media (max-width: 40em) {
+          header div[data-name="wrapper"] div[data-name="links"] a {
+            margin-left: 1rem;
+            font-size: 0.8rem; } }
+        header div[data-name="wrapper"] div[data-name="links"] a:hover {
+          opacity: 0.9;
+          color: #28FF00; }
+        header div[data-name="wrapper"] div[data-name="links"] a:last-child {
+          color: #28FF00;
+          font-family: "HelveticaNeueBold";
+          position: relative; }
+          header div[data-name="wrapper"] div[data-name="links"] a:last-child > div {
+            position: absolute;
+            width: 2.5rem;
+            height: 0.25rem;
+            border-radius: 0.25rem;
+            background-color: transparent;
+            left: 2.5rem;
+            bottom: -1rem;
+            transition: all 0.2s ease; }
+          @media (min-width: 40em) {
+            header div[data-name="wrapper"] div[data-name="links"] a:last-child:hover > div {
+              bottom: -0.8rem;
+              background-color: #28FF00;
+              transition: all 0.2s ease; } }
+
+.dark header {
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1); }
+  .dark header div[data-name="wrapper"] div[data-name="links"] a:not(:last-child) {
+    color: #000000; }
+    .dark header div[data-name="wrapper"] div[data-name="links"] a:not(:last-child):hover {
+      color: #21D000; }
+  .dark header div[data-name="wrapper"] div[data-name="links"] a:last-child {
+    color: #21D000; }
+    .dark header div[data-name="wrapper"] div[data-name="links"] a:last-child:hover > div {
+      background-color: #21D000; }
+
+.loading-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(33, 174, 7, 0.98);
+  z-index: 10; }
+
+.spinner {
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  left: 50%;
+  margin-left: -40px;
+  top: 30%; }
+
+.spinner-text {
+  width: 90%;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 1rem;
+  top: 30%;
+  margin-top: 80px;
+  position: fixed;
+  left: 50%;
+  margin-left: -45%; }
+  .spinner-text p {
+    text-transform: uppercase; }
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out; }
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s; }
+
+section[data-name="introduction"] {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(/static/assets/images/nimble-background.png); }
+  section[data-name="introduction"] div[data-name="content"] {
+    max-width: 64em;
+    width: 85%;
+    margin: 12rem auto 10rem auto;
+    position: relative;
+    z-index: 2; }
+    @media (max-width: 40em) {
+      section[data-name="introduction"] div[data-name="content"] {
+        margin-top: 15rem; } }
+    section[data-name="introduction"] div[data-name="content"] div[data-name="wrapper"] {
+      width: 100%;
+      max-width: 30rem; }
+      section[data-name="introduction"] div[data-name="content"] div[data-name="wrapper"] h1 {
+        color: #28FF00;
+        font-size: 3.8rem;
+        font-family: "HelveticaNeueThin";
+        margin: 0 0 0.5rem 0; }
+        @media (max-width: 40em) {
+          section[data-name="introduction"] div[data-name="content"] div[data-name="wrapper"] h1 {
+            font-size: 2.8rem; } }
+      section[data-name="introduction"] div[data-name="content"] div[data-name="wrapper"] p {
+        color: #FFFFFF;
+        line-height: 1.8;
+        font-size: 1.1rem; }
+        @media (max-width: 40em) {
+          section[data-name="introduction"] div[data-name="content"] div[data-name="wrapper"] p {
+            font-size: 1rem; } }
+      section[data-name="introduction"] div[data-name="content"] div[data-name="wrapper"] small {
+        color: #FFFFFF;
+        font-size: 0.85rem; }
+      section[data-name="introduction"] div[data-name="content"] div[data-name="wrapper"] > strong {
+        margin: 2rem 0 0 0;
+        display: block;
+        line-height: 1.5;
+        color: #FFF;
+        font-size: 0.8rem;
+        max-width: 19rem;
+        font-family: "HelveticaNeueLight"; }
+      section[data-name="introduction"] div[data-name="content"] div[data-name="wrapper"] a {
+        display: block;
+        max-width: 14rem;
+        padding: 1rem;
+        border-radius: 2rem;
+        margin: 2rem 0 2rem 0;
+        color: #000000;
+        border: 0.1rem solid #000000;
+        background-color: #28FF00;
+        text-decoration: none;
+        text-align: center;
+        font-family: "HelveticaNeueMedium"; }
+        section[data-name="introduction"] div[data-name="content"] div[data-name="wrapper"] a:hover {
+          background-color: #21D000; }
+
+section[data-name="smallestaround"] {
+  min-height: 100vh; }
+  section[data-name="smallestaround"] div[data-name="content"] {
+    max-width: 55rem;
+    margin: 5rem auto 2rem auto;
+    width: 90%;
+    height: 22.5rem;
+    background-color: #FFFFFF;
+    border-radius: 0.5rem;
+    box-sizing: content-box;
+    border: 0.2rem solid #21D000;
+    overflow: hidden; }
+    @media (max-width: 64em) {
+      section[data-name="smallestaround"] div[data-name="content"] {
+        display: block;
+        height: auto;
+        max-width: 40em;
+        padding-top: 1rem; } }
+    @media (max-width: 40em) {
+      section[data-name="smallestaround"] div[data-name="content"] {
+        border-radius: 0; } }
+    section[data-name="smallestaround"] div[data-name="content"] div[data-name="text"] {
+      display: inline-block;
+      max-width: 26rem;
+      padding: 3rem 1rem 3rem 3rem; }
+      @media (max-width: 64em) {
+        section[data-name="smallestaround"] div[data-name="content"] div[data-name="text"] {
+          padding: 1.5rem; } }
+      section[data-name="smallestaround"] div[data-name="content"] div[data-name="text"] small {
+        display: block;
+        color: #000000;
+        font-family: "HelveticaNeueMedium"; }
+      section[data-name="smallestaround"] div[data-name="content"] div[data-name="text"] h3 {
+        color: #21D000;
+        font-size: 2rem;
+        margin: 0.5rem 0;
+        line-height: 1.5;
+        font-family: "HelveticaNeueBold"; }
+        @media (max-width: 64em) {
+          section[data-name="smallestaround"] div[data-name="content"] div[data-name="text"] h3 {
+            font-size: 1.8rem; } }
+      section[data-name="smallestaround"] div[data-name="content"] div[data-name="text"] p {
+        line-height: 2;
+        font-size: 0.9rem;
+        margin: 0; }
+        @media (max-width: 64em) {
+          section[data-name="smallestaround"] div[data-name="content"] div[data-name="text"] p {
+            font-size: 0.8rem; } }
+      @media (max-width: 64em) {
+        section[data-name="smallestaround"] div[data-name="content"] div[data-name="text"] {
+          display: block;
+          margin: 0 auto; } }
+    section[data-name="smallestaround"] div[data-name="content"] div[data-name="preview"] {
+      display: inline-block;
+      float: right;
+      width: 100%;
+      max-width: 25rem;
+      height: 22.5rem;
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url(/static/assets/images/nimble-size.png);
+      position: relative; }
+      @media (max-width: 64em) {
+        section[data-name="smallestaround"] div[data-name="content"] div[data-name="preview"] {
+          float: none;
+          max-width: 100%;
+          margin: 0 auto;
+          display: block;
+          height: 35rem; } }
+      @media (max-width: 40em) {
+        section[data-name="smallestaround"] div[data-name="content"] div[data-name="preview"] {
+          height: 30rem;
+          width: 100%; } }
+      @media (max-width: 30em) {
+        section[data-name="smallestaround"] div[data-name="content"] div[data-name="preview"] {
+          height: 20rem; } }
+  section[data-name="smallestaround"] div[data-name="previews"] {
+    text-align: center; }
+    section[data-name="smallestaround"] div[data-name="previews"] div[data-name="preview"] {
+      max-width: 16.5rem;
+      width: 90%;
+      display: inline-block;
+      margin: 1rem; }
+      @media (max-width: 64em) {
+        section[data-name="smallestaround"] div[data-name="previews"] div[data-name="preview"] {
+          max-width: 40em; } }
+      @media (max-width: 40em) {
+        section[data-name="smallestaround"] div[data-name="previews"] div[data-name="preview"] {
+          max-width: inherit;
+          margin: 1rem auto; } }
+      section[data-name="smallestaround"] div[data-name="previews"] div[data-name="preview"] > div {
+        width: 100%;
+        height: 13rem;
+        border-radius: 0.5rem;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 0.1rem solid #28FF00; }
+        @media (max-width: 64em) {
+          section[data-name="smallestaround"] div[data-name="previews"] div[data-name="preview"] > div {
+            height: 30rem;
+            border-radius: 0; } }
+        @media (max-width: 40em) {
+          section[data-name="smallestaround"] div[data-name="previews"] div[data-name="preview"] > div {
+            height: 20rem; } }
+      section[data-name="smallestaround"] div[data-name="previews"] div[data-name="preview"] > p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        max-width: 16rem;
+        margin: 0.5rem auto; }
+      section[data-name="smallestaround"] div[data-name="previews"] div[data-name="preview"]:nth-child(1) > div {
+        background-image: url(/static/assets/images/landing-preview-1.png); }
+      section[data-name="smallestaround"] div[data-name="previews"] div[data-name="preview"]:nth-child(2) > div {
+        background-image: url(/static/assets/images/landing-preview-2.png); }
+      section[data-name="smallestaround"] div[data-name="previews"] div[data-name="preview"]:nth-child(3) > div {
+        background-image: url(/static/assets/images/landing-preview-3.png); }
+
+section[data-name="plugandplay"] {
+  min-height: 100vh; }
+  section[data-name="plugandplay"] div[data-name="content"] {
+    max-width: 55rem;
+    margin: 3rem auto;
+    width: 90%;
+    height: 22.5rem;
+    background-color: #FFFFFF;
+    border-radius: 0.5rem;
+    border: 0.2rem solid #21D000;
+    overflow: hidden;
+    box-sizing: content-box; }
+    @media (max-width: 64em) {
+      section[data-name="plugandplay"] div[data-name="content"] {
+        display: block;
+        height: auto;
+        max-width: 40em; } }
+    @media (max-width: 40em) {
+      section[data-name="plugandplay"] div[data-name="content"] {
+        border-radius: 0; } }
+    section[data-name="plugandplay"] div[data-name="content"] div[data-name="text"] {
+      display: inline-block;
+      max-width: 24rem;
+      padding: 3rem 1rem 3rem 3rem; }
+      @media (max-width: 64em) {
+        section[data-name="plugandplay"] div[data-name="content"] div[data-name="text"] {
+          padding: 1.5rem; } }
+      section[data-name="plugandplay"] div[data-name="content"] div[data-name="text"] small {
+        display: block;
+        color: #000000;
+        font-family: "HelveticaNeueMedium"; }
+      section[data-name="plugandplay"] div[data-name="content"] div[data-name="text"] h3 {
+        color: #21D000;
+        font-size: 2rem;
+        margin: 0.5rem 0;
+        line-height: 1.5;
+        font-family: "HelveticaNeueBold"; }
+        @media (max-width: 64em) {
+          section[data-name="plugandplay"] div[data-name="content"] div[data-name="text"] h3 {
+            font-size: 1.7rem; } }
+      section[data-name="plugandplay"] div[data-name="content"] div[data-name="text"] p {
+        line-height: 2;
+        font-size: 0.9rem;
+        margin: 0; }
+        @media (max-width: 64em) {
+          section[data-name="plugandplay"] div[data-name="content"] div[data-name="text"] p {
+            font-size: 0.8rem; } }
+      @media (max-width: 64em) {
+        section[data-name="plugandplay"] div[data-name="content"] div[data-name="text"] {
+          display: block;
+          margin: 0 auto; } }
+    section[data-name="plugandplay"] div[data-name="content"] div[data-name="preview"] {
+      display: inline-block;
+      float: right;
+      width: 28rem;
+      height: 22.5rem;
+      position: relative;
+      overflow: hidden; }
+      @media (max-width: 64em) {
+        section[data-name="plugandplay"] div[data-name="content"] div[data-name="preview"] {
+          float: none;
+          margin: 0 auto;
+          display: block;
+          width: 100%;
+          height: 35rem;
+          display: none; } }
+      @media (max-width: 40em) {
+        section[data-name="plugandplay"] div[data-name="content"] div[data-name="preview"] {
+          height: 30rem; } }
+      @media (max-width: 30em) {
+        section[data-name="plugandplay"] div[data-name="content"] div[data-name="preview"] {
+          background-size: cover;
+          height: 20rem; } }
+      section[data-name="plugandplay"] div[data-name="content"] div[data-name="preview"] video {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 10%;
+        object-fit: cover; }
+        @media (max-width: 64em) {
+          section[data-name="plugandplay"] div[data-name="content"] div[data-name="preview"] video {
+            display: none;
+            width: 0;
+            height: 0;
+            overflow: hidden; } }
+    section[data-name="plugandplay"] div[data-name="content"] div[data-name="preview-mobile"] {
+      width: 28rem;
+      height: 22.5rem;
+      position: relative;
+      overflow: hidden;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url(/static/assets/media/setup.gif);
+      display: none; }
+      @media (max-width: 64em) {
+        section[data-name="plugandplay"] div[data-name="content"] div[data-name="preview-mobile"] {
+          margin: 0 auto;
+          display: block;
+          width: 100%;
+          height: 35rem; } }
+      @media (max-width: 40em) {
+        section[data-name="plugandplay"] div[data-name="content"] div[data-name="preview-mobile"] {
+          height: 30rem; } }
+      @media (max-width: 30em) {
+        section[data-name="plugandplay"] div[data-name="content"] div[data-name="preview-mobile"] {
+          background-size: cover;
+          height: 20rem; } }
+  section[data-name="plugandplay"] div[data-name="mobile"] {
+    max-width: 55rem;
+    margin: 3rem auto;
+    padding: 2rem 1rem 0 1rem;
+    width: 90%;
+    background-color: #28FF00;
+    border: 0.2rem solid #28FF00;
+    border-bottom: none;
+    border-radius: 0.5rem;
+    overflow: hidden; }
+    @media (max-width: 64em) {
+      section[data-name="plugandplay"] div[data-name="mobile"] {
+        display: block;
+        max-width: 40em; } }
+    @media (max-width: 40em) {
+      section[data-name="plugandplay"] div[data-name="mobile"] {
+        border-radius: 0; } }
+    section[data-name="plugandplay"] div[data-name="mobile"] div[data-name="text"] {
+      display: block;
+      margin: 0 auto;
+      text-align: center; }
+      @media (max-width: 64em) {
+        section[data-name="plugandplay"] div[data-name="mobile"] div[data-name="text"] {
+          padding: 1.5rem; } }
+      section[data-name="plugandplay"] div[data-name="mobile"] div[data-name="text"] small {
+        display: block;
+        color: #000000;
+        font-family: "HelveticaNeueMedium"; }
+      section[data-name="plugandplay"] div[data-name="mobile"] div[data-name="text"] h3 {
+        color: #000000;
+        font-size: 2rem;
+        margin: 0.5rem 0;
+        line-height: 1.5;
+        font-family: "HelveticaNeueBold"; }
+        @media (max-width: 64em) {
+          section[data-name="plugandplay"] div[data-name="mobile"] div[data-name="text"] h3 {
+            font-size: 1.8rem; } }
+      section[data-name="plugandplay"] div[data-name="mobile"] div[data-name="text"] p {
+        line-height: 2;
+        font-size: 0.9rem;
+        margin: 0 auto 2rem auto;
+        max-width: 30rem; }
+        @media (max-width: 64em) {
+          section[data-name="plugandplay"] div[data-name="mobile"] div[data-name="text"] p {
+            font-size: 0.8rem; } }
+      @media (max-width: 64em) {
+        section[data-name="plugandplay"] div[data-name="mobile"] div[data-name="text"] {
+          display: block;
+          margin: 0 auto; } }
+      section[data-name="plugandplay"] div[data-name="mobile"] div[data-name="text"] div[data-name="points"] div[data-name="point"] {
+        display: inline-block;
+        font-size: 0.9rem;
+        margin: 0 2rem 2rem 2rem; }
+        section[data-name="plugandplay"] div[data-name="mobile"] div[data-name="text"] div[data-name="points"] div[data-name="point"] > i {
+          display: block;
+          font-size: 2.3rem;
+          margin: 0 0 0.5rem 0;
+          color: rgba(0, 0, 0, 0.8); }
+        section[data-name="plugandplay"] div[data-name="mobile"] div[data-name="text"] div[data-name="points"] div[data-name="point"] > span {
+          vertical-align: middle;
+          font-size: 1rem;
+          color: rgba(0, 0, 0, 0.8);
+          font-family: "HelveticaNeueThin"; }
+    section[data-name="plugandplay"] div[data-name="mobile"] div[data-name="preview"] {
+      display: block;
+      position: relative;
+      bottom: -1.5rem;
+      width: 30rem;
+      height: 25rem;
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url(/static/assets/images/mobile-preview.png);
+      margin: 0 auto; }
+      @media (max-width: 40em) {
+        section[data-name="plugandplay"] div[data-name="mobile"] div[data-name="preview"] {
+          right: 3rem; } }
+
+section[data-name="yourfavoritecoin"] {
+  min-height: 100vh;
+  min-height: 100vh; }
+  section[data-name="yourfavoritecoin"] div[data-name="content"] {
+    max-width: 55rem;
+    margin: 3rem auto;
+    width: 90%;
+    background-color: #FFFFFF;
+    border-radius: 0.5rem;
+    border: 0.2rem solid #21D000;
+    overflow: hidden;
+    padding: 3rem 3rem 5rem 3rem; }
+    @media (max-width: 64em) {
+      section[data-name="yourfavoritecoin"] div[data-name="content"] {
+        display: block;
+        height: auto;
+        max-width: 40em;
+        padding: 1rem 0.5rem 5rem 0.5rem; } }
+    @media (max-width: 40em) {
+      section[data-name="yourfavoritecoin"] div[data-name="content"] {
+        border-radius: 0; } }
+    section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="text"] {
+      display: block;
+      max-width: 40rem;
+      margin: 0 auto;
+      text-align: center; }
+      @media (max-width: 64em) {
+        section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="text"] {
+          padding: 1.5rem; } }
+      section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="text"] small {
+        display: block;
+        color: #000000;
+        font-family: "HelveticaNeueMedium"; }
+      section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="text"] h3 {
+        color: #000000;
+        font-size: 2rem;
+        margin: 0.5rem 0 1rem 0;
+        line-height: 1.8;
+        font-family: "HelveticaNeueBold"; }
+        @media (max-width: 64em) {
+          section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="text"] h3 {
+            font-size: 1.7rem; } }
+        section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="text"] h3 > strong:nth-child(3) {
+          color: #21D000;
+          border-bottom: 0.1rem solid #21D000;
+          padding: 0 0 0.5rem 0; }
+      section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="text"] p {
+        line-height: 2;
+        font-size: 0.9rem;
+        margin: 0 0 2rem 0; }
+        @media (max-width: 64em) {
+          section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="text"] p {
+            font-size: 0.8rem; } }
+      @media (max-width: 64em) {
+        section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="text"] {
+          display: block;
+          margin: 0 auto; } }
+    section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="coins"] {
+      text-align: center;
+      margin-bottom: 3rem; }
+      section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="coins"] div[data-name="coin"] {
+        width: 7rem;
+        display: inline-block;
+        margin: 0 2rem 2rem 2rem; }
+        section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="coins"] div[data-name="coin"] > div {
+          background-position: center center;
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 100%;
+          height: 7rem;
+          margin: 0 0 0.8rem 0; }
+        section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="coins"] div[data-name="coin"] > span {
+          color: #21D000;
+          font-size: 0.9rem; }
+        section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="coins"] div[data-name="coin"]:nth-child(1) > div {
+          background-image: url(/static/assets/images/coin-bitcoin.png); }
+        section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="coins"] div[data-name="coin"]:nth-child(2) > div {
+          background-image: url(/static/assets/images/coin-ethereum.png); }
+        section[data-name="yourfavoritecoin"] div[data-name="content"] div[data-name="coins"] div[data-name="coin"]:nth-child(3) > div {
+          background-image: url(/static/assets/images/coin-bithereum.png); }
+    section[data-name="yourfavoritecoin"] div[data-name="content"] > p {
+      text-align: center;
+      font-size: 0.9rem;
+      margin: 0 0 1rem 0; }
+    section[data-name="yourfavoritecoin"] div[data-name="content"] > .button {
+      color: #21D000;
+      border: 0.1rem solid #21D000;
+      padding: 0.8rem 2rem;
+      font-size: 0.9rem;
+      font-family: "HelveticaNeueMedium";
+      display: block;
+      max-width: 13rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      text-align: center;
+      margin: 0 auto;
+      cursor: pointer; }
+      section[data-name="yourfavoritecoin"] div[data-name="content"] > .button:hover {
+        background-color: #21D000;
+        color: #000000; }
+  section[data-name="yourfavoritecoin"] div[data-name="ourmission"] {
+    max-width: 50rem;
+    margin: 3rem auto;
+    width: 90%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    text-align: center;
+    padding: 3rem 1rem 5rem 1rem; }
+    @media (max-width: 64em) {
+      section[data-name="yourfavoritecoin"] div[data-name="ourmission"] {
+        display: block;
+        height: auto;
+        max-width: 40em; } }
+    section[data-name="yourfavoritecoin"] div[data-name="ourmission"] h3 {
+      font-size: 1.9rem;
+      margin: 0 0 0.5rem 0;
+      font-family: "HelveticaNeueBold"; }
+      @media (max-width: 64em) {
+        section[data-name="yourfavoritecoin"] div[data-name="ourmission"] h3 {
+          font-size: 1.7rem; } }
+    section[data-name="yourfavoritecoin"] div[data-name="ourmission"] p {
+      line-height: 1.8;
+      font-size: 0.95rem;
+      margin: 0 auto 2rem auto; }
+      @media (max-width: 40em) {
+        section[data-name="yourfavoritecoin"] div[data-name="ourmission"] p {
+          font-size: 0.9rem;
+          width: 95%; } }
+    section[data-name="yourfavoritecoin"] div[data-name="ourmission"] .button {
+      color: #28FF00;
+      border: 0.1rem solid #28FF00;
+      background-color: #28FF00;
+      padding: 0.8rem 2rem;
+      font-size: 0.95rem;
+      font-family: "HelveticaNeueMedium";
+      display: block;
+      max-width: 13rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      text-align: center;
+      margin: 0 auto;
+      color: #000000; }
+      section[data-name="yourfavoritecoin"] div[data-name="ourmission"] .button:hover {
+        border: 0.1rem solid #21D000;
+        background-color: #21D000; }
+
+section[data-name="title"] {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(/static/assets/images/nimble-banner.png);
+  width: 100%;
+  min-height: 15rem;
+  overflow: hidden; }
+  section[data-name="title"] h1 {
+    color: #FFFFFF;
+    line-height: 1.8;
+    margin: 13rem auto 3rem auto;
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: "HelveticaNeueThin"; }
+    @media (max-width: 40em) {
+      section[data-name="title"] h1 {
+        font-size: 1.8rem; } }
+
+section[data-name="body"] {
+  padding: 1rem 1rem 5rem 1rem;
+  min-height: 100vh; }
+  section[data-name="body"] h3 {
+    line-height: 1.8; }
+  section[data-name="body"] li {
+    line-height: 1.8;
+    font-size: 0.9rem;
+    margin: 0 0 0.5rem 0; }
+  section[data-name="body"] p {
+    line-height: 1.8;
+    font-size: 0.9rem;
+    margin: 0 auto 1rem auto; }
+    section[data-name="body"] p:nth-child(1) {
+      margin: 0 auto 3rem auto;
+      text-align: center; }
+    section[data-name="body"] p a {
+      color: #21D000;
+      text-decoration: none; }
+  section[data-name="body"] div[data-name="holder"] {
+    width: 90%;
+    max-width: 33rem;
+    margin: 0 auto; }
+  section[data-name="body"] div[data-name="wrapper"] > p {
+    max-width: 33rem;
+    width: 90%;
+    text-align: center;
+    line-height: 1.8;
+    font-size: 0.9rem;
+    margin: 0 auto 1rem auto; }
+    section[data-name="body"] div[data-name="wrapper"] > p:nth-child(1) {
+      margin: 0 auto 3rem auto; }
+  section[data-name="body"] div[data-name="form"] {
+    display: block;
+    margin: 0 auto 10rem auto;
+    width: 95%;
+    max-width: 25rem; }
+    section[data-name="body"] div[data-name="form"] h3 {
+      color: #7A7777;
+      text-decoration: underline;
+      text-align: center;
+      margin: 3rem 0 2rem 0; }
+    section[data-name="body"] div[data-name="form"] div[data-name="fields"] {
+      margin: 0 0 4rem 0; }
+    section[data-name="body"] div[data-name="form"] div[data-name="field"] {
+      margin: 0 0 2rem 0; }
+      section[data-name="body"] div[data-name="form"] div[data-name="field"] label {
+        color: #000000;
+        font-family: "HelveticaNeueMedium";
+        font-size: 0.8rem;
+        margin: 0 0 0.3rem 0;
+        display: block;
+        line-height: 1.5; }
+      section[data-name="body"] div[data-name="form"] div[data-name="field"] input {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border-radius: 0.3rem;
+        background-color: #DADADA;
+        border: none; }
+      section[data-name="body"] div[data-name="form"] div[data-name="field"] textarea {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border-radius: 0.3rem;
+        background-color: #DADADA;
+        border: none;
+        min-height: 7rem; }
+      section[data-name="body"] div[data-name="form"] div[data-name="field"] small {
+        display: block;
+        text-align: center;
+        color: #534949;
+        margin: 0.5rem 0; }
+      section[data-name="body"] div[data-name="form"] div[data-name="field"] select {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border-radius: 0.3rem;
+        background-color: #DADADA;
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none; }
+    section[data-name="body"] div[data-name="form"] .button {
+      max-width: 15rem;
+      width: 100%;
+      color: #FFFFFF;
+      text-align: center;
+      display: block;
+      margin: 0 auto;
+      border-radius: 2rem;
+      padding: 0.8rem 2rem;
+      background-color: #21D000;
+      text-decoration: none;
+      cursor: pointer; }
+      section[data-name="body"] div[data-name="form"] .button[disabled] {
+        opacity: 0.3; }
+      section[data-name="body"] div[data-name="form"] .button:not([disabled]):hover {
+        opacity: 0.8; }
+  section[data-name="body"] div[data-name="questions"] {
+    margin: 0 0 8rem 0; }
+    section[data-name="body"] div[data-name="questions"] div[data-name="question"] {
+      margin: 0 0 3.5rem 0; }
+      section[data-name="body"] div[data-name="questions"] div[data-name="question"] strong {
+        font-size: 1.1rem;
+        margin: 0 0 0.5rem 0;
+        display: block;
+        line-height: 1.8; }
+      section[data-name="body"] div[data-name="questions"] div[data-name="question"] p {
+        font-size: 0.9rem;
+        line-height: 1.8;
+        margin: 0 0 1rem 0; }
+  section[data-name="body"] div[data-name="support"] {
+    text-align: center;
+    margin: 0 0 15rem 0; }
+    section[data-name="body"] div[data-name="support"] a[data-name="option"] {
+      text-decoration: none;
+      color: #FFFFFF;
+      background-color: #21AE07;
+      padding: 3rem 1rem;
+      display: inline-block;
+      text-align: center;
+      max-width: 15rem;
+      width: 95%;
+      margin: 1rem;
+      text-align: center;
+      border-radius: 0.5rem; }
+      section[data-name="body"] div[data-name="support"] a[data-name="option"] i {
+        display: block;
+        font-size: 3.5rem;
+        margin: 0 0 1rem 0;
+        color: #FFFFFF; }
+      section[data-name="body"] div[data-name="support"] a[data-name="option"] span {
+        font-size: 0.95rem;
+        color: #FFFFFF;
+        font-family: "HelveticaNeueMedium"; }
+  section[data-name="body"] div[data-name="legal"] {
+    text-align: center;
+    margin: 0 0 15rem 0; }
+    section[data-name="body"] div[data-name="legal"] a[data-name="option"] {
+      text-decoration: none;
+      color: #FFFFFF;
+      background-color: #21AE07;
+      padding: 3rem 1rem;
+      display: inline-block;
+      text-align: center;
+      max-width: 15rem;
+      width: 95%;
+      margin: 1rem;
+      text-align: center;
+      border-radius: 0.5rem; }
+      section[data-name="body"] div[data-name="legal"] a[data-name="option"] i {
+        display: block;
+        font-size: 3.5rem;
+        margin: 0 0 1rem 0;
+        color: #FFFFFF; }
+      section[data-name="body"] div[data-name="legal"] a[data-name="option"] span {
+        font-size: 0.95rem;
+        color: #FFFFFF;
+        font-family: "HelveticaNeueMedium"; }
+  section[data-name="body"] div[data-name="order"] strong {
+    display: block;
+    font-size: 0.85rem;
+    text-align: center;
+    margin: 0 0 0.5rem 0; }
+  section[data-name="body"] div[data-name="order"] span {
+    font-size: 2.2rem;
+    text-align: center;
+    display: block;
+    color: #21D000;
+    font-family: "HelveticaNeueBold"; }
+  section[data-name="body"] div[data-name="divider"] {
+    margin: 4rem auto;
+    background-color: #D8D8D8;
+    height: 0.05rem;
+    width: 90%;
+    max-width: 40rem; }
+  section[data-name="body"] div[data-name="earn"] {
+    margin: 0 0 8rem 0; }
+    section[data-name="body"] div[data-name="earn"] strong {
+      display: block;
+      font-size: 1.1rem;
+      color: #21D000;
+      text-align: center;
+      margin: 0 0 0.5rem 0;
+      line-height: 1.8; }
+    section[data-name="body"] div[data-name="earn"] p {
+      text-align: center;
+      font-size: 0.9rem; }
+    section[data-name="body"] div[data-name="earn"] span {
+      color: #21D000;
+      font-family: "HelveticaNeueMedium";
+      text-align: center;
+      display: block;
+      border-radius: 0.5rem;
+      padding: 0.8rem 1rem;
+      width: 100%;
+      background-color: #000000;
+      font-size: 0.9rem; }
+  section[data-name="body"] div[data-name="learnmore"] {
+    margin: 0 0 10rem 0; }
+    section[data-name="body"] div[data-name="learnmore"] p {
+      margin: 0 0 1rem 0; }
+    section[data-name="body"] div[data-name="learnmore"] a {
+      color: #21D000; }
+    section[data-name="body"] div[data-name="learnmore"] div[data-name="options"] {
+      text-align: center; }
+      section[data-name="body"] div[data-name="learnmore"] div[data-name="options"] a[data-name="option"] {
+        display: inline-block;
+        margin: 1rem 2rem;
+        text-align: center;
+        text-decoration: none; }
+        section[data-name="body"] div[data-name="learnmore"] div[data-name="options"] a[data-name="option"] i {
+          font-size: 2.8rem;
+          display: block;
+          margin: 0 0 0.5rem 0;
+          color: #21D000; }
+        section[data-name="body"] div[data-name="learnmore"] div[data-name="options"] a[data-name="option"] span {
+          display: block;
+          text-align: center;
+          font-size: 0.9rem;
+          color: #21D000; }
+  section[data-name="body"] span[data-name="order-status"] {
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    font-family: "HelveticaNeueMedium";
+    color: #21D000;
+    margin: 0 auto 3rem auto; }
+  section[data-name="body"] small[data-name="order-notfound"] {
+    color: red !important; }
+
+section[data-name="item-options"] {
+  padding: 10rem 0 3rem 0;
+  max-width: 64em;
+  margin: 0 auto;
+  width: 90%;
+  white-space: nowrap; }
+  @media (max-width: 64em) {
+    section[data-name="item-options"] {
+      padding: 12rem 0 3rem 0;
+      max-width: 35rem; } }
+  section[data-name="item-options"] div[data-name="information"] {
+    width: 50%;
+    float: left;
+    white-space: normal;
+    box-sizing: border-box;
+    padding: 0 5rem;
+    line-height: 1.2;
+    font-family: "HelveticaNeueThin"; }
+    @media (max-width: 64em) {
+      section[data-name="item-options"] div[data-name="information"] {
+        float: none;
+        width: 100%;
+        display: block;
+        padding: 0 1rem; } }
+    section[data-name="item-options"] div[data-name="information"] div[data-name="badge"] {
+      width: 5rem;
+      height: 5rem;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 0 0 1rem 0; }
+    section[data-name="item-options"] div[data-name="information"] h1[data-name="name"] {
+      font-size: 2.8rem;
+      margin: 0 0 0.3rem 0; }
+    section[data-name="item-options"] div[data-name="information"] span[data-name="subname"] {
+      font-size: 1.5rem;
+      margin: 0 0 3rem 0;
+      display: block;
+      font-family: "HelveticaNeueThin"; }
+    section[data-name="item-options"] div[data-name="information"] div[data-name="pricing"] {
+      margin: 0 0 2rem 0; }
+      section[data-name="item-options"] div[data-name="information"] div[data-name="pricing"] div[data-name="price"] {
+        font-size: 1.4rem;
+        display: inline-block; }
+        section[data-name="item-options"] div[data-name="information"] div[data-name="pricing"] div[data-name="price"]:nth-child(2) {
+          margin: 0 1rem;
+          color: #C1C1C1;
+          text-decoration: line-through; }
+    section[data-name="item-options"] div[data-name="information"] div[data-name="quantity"] {
+      margin: 0 0 1rem 0; }
+      section[data-name="item-options"] div[data-name="information"] div[data-name="quantity"] select {
+        padding: 0.5rem 1rem;
+        border-radius: 0.3rem;
+        background-color: #DADADA;
+        border: none;
+        -webkit-appearance: none; }
+    section[data-name="item-options"] div[data-name="information"] div[data-name="special"] {
+      margin: 1.5rem 0;
+      font-size: 0.85rem;
+      line-height: 1.5; }
+      section[data-name="item-options"] div[data-name="information"] div[data-name="special"] strong {
+        color: #FF6B6B; }
+    section[data-name="item-options"] div[data-name="information"] div[data-name="coin"] {
+      padding: 0 0 1rem 0;
+      border-bottom: 0.09rem solid #D8D8D8;
+      margin: 0 0 1.5rem 0; }
+      section[data-name="item-options"] div[data-name="information"] div[data-name="coin"] p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin: 0 0 0.3rem 0; }
+      section[data-name="item-options"] div[data-name="information"] div[data-name="coin"] small {
+        text-align: center;
+        display: block;
+        margin: 0 0 1rem 0;
+        color: #666666; }
+      section[data-name="item-options"] div[data-name="information"] div[data-name="coin"] select {
+        padding: 0.5rem 1rem;
+        border-radius: 0.3rem;
+        background-color: #DADADA;
+        border: none;
+        -webkit-appearance: none;
+        display: block;
+        box-sizing: border-box;
+        width: 100%; }
+      section[data-name="item-options"] div[data-name="information"] div[data-name="coin"] button {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0.7rem 1rem;
+        border-radius: 2rem;
+        margin: 1.5rem 0 1rem 0;
+        color: #FFFFFF;
+        border: none;
+        background-color: #21D000;
+        text-decoration: none;
+        text-align: center;
+        outline: none;
+        cursor: pointer; }
+        section[data-name="item-options"] div[data-name="information"] div[data-name="coin"] button:hover {
+          background-color: #1EB701; }
+    section[data-name="item-options"] div[data-name="information"] > p {
+      font-size: 0.9rem;
+      text-align: center;
+      display: block;
+      margin: 0 0 2rem 0; }
+      section[data-name="item-options"] div[data-name="information"] > p a {
+        color: #21D000; }
+  section[data-name="item-options"] div[data-name="preview-holder"] {
+    width: 50%;
+    float: left;
+    white-space: normal; }
+    @media (max-width: 64em) {
+      section[data-name="item-options"] div[data-name="preview-holder"] {
+        float: none;
+        width: 100%;
+        display: block; } }
+    section[data-name="item-options"] div[data-name="preview-holder"] div[data-name="main"] {
+      width: 90%;
+      height: 25rem;
+      margin: 0 auto;
+      border: 0.1rem solid #21D000;
+      border-radius: 0.3rem;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover; }
+    section[data-name="item-options"] div[data-name="preview-holder"] div[data-name="previews"] {
+      text-align: center; }
+      section[data-name="item-options"] div[data-name="preview-holder"] div[data-name="previews"] div[data-name="preview"] {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 6rem;
+        margin: 1rem 0.5rem;
+        height: 6rem;
+        display: inline-block;
+        overflow: hidden;
+        border: 0.1rem solid #21D000;
+        border-radius: 0.3rem;
+        cursor: pointer; }
+
+section[data-name="item-details"] {
+  max-width: 64em;
+  margin: 0 auto;
+  width: 90%;
+  padding: 5rem 3rem 5em 3rem;
+  clear: both; }
+  @media (max-width: 64em) {
+    section[data-name="item-details"] {
+      padding: 5rem 0.5rem 5em 0.5rem; } }
+  section[data-name="item-details"] h2 {
+    margin: 0 0 2rem 0;
+    font-family: "HelveticaNeueBold"; }
+  section[data-name="item-details"] div[data-name="details"] div[data-name="detail"] {
+    white-space: nowrap;
+    margin: 0 0 2rem 0; }
+    section[data-name="item-details"] div[data-name="details"] div[data-name="detail"]:after {
+      content: "";
+      clear: both;
+      display: table; }
+    section[data-name="item-details"] div[data-name="details"] div[data-name="detail"] div[data-name="left"] {
+      float: left;
+      width: 40%;
+      white-space: normal; }
+      @media (max-width: 64em) {
+        section[data-name="item-details"] div[data-name="details"] div[data-name="detail"] div[data-name="left"] {
+          float: none;
+          width: 100%;
+          display: block; } }
+      section[data-name="item-details"] div[data-name="details"] div[data-name="detail"] div[data-name="left"] span {
+        font-size: 1.3rem;
+        font-family: "HelveticaNeueLight";
+        margin: 0 0 1rem 0;
+        display: block;
+        line-height: 1.5; }
+    section[data-name="item-details"] div[data-name="details"] div[data-name="detail"] div[data-name="right"] {
+      float: left;
+      width: 60%;
+      white-space: normal; }
+      @media (max-width: 64em) {
+        section[data-name="item-details"] div[data-name="details"] div[data-name="detail"] div[data-name="right"] {
+          float: none;
+          width: 100%;
+          display: block; } }
+      section[data-name="item-details"] div[data-name="details"] div[data-name="detail"] div[data-name="right"] strong {
+        margin: 0 0 0.3rem 0;
+        display: block;
+        font-size: 1rem;
+        font-family: "HelveticaNeueMedium"; }
+      section[data-name="item-details"] div[data-name="details"] div[data-name="detail"] div[data-name="right"] p {
+        margin: 0 0 3rem 0;
+        font-size: 0.9rem;
+        line-height: 1.8; }
+      section[data-name="item-details"] div[data-name="details"] div[data-name="detail"] div[data-name="right"] ul {
+        margin: 0;
+        padding: 0; }
+        section[data-name="item-details"] div[data-name="details"] div[data-name="detail"] div[data-name="right"] ul li {
+          list-style: none;
+          font-size: 0.9rem;
+          margin: 0 0 1.5rem 0;
+          line-height: 1.5; }
+
+section[data-name="store-items"] {
+  max-width: 64em;
+  margin: 0 auto;
+  width: 90%;
+  padding: 9rem 3rem 10rem 3rem;
+  clear: both;
+  text-align: center; }
+  @media (max-width: 64em) {
+    section[data-name="store-items"] {
+      padding: 10rem 0.5rem 5em 0.5rem; } }
+  section[data-name="store-items"] h1 {
+    font-size: 2.6rem;
+    margin: 0 0 0.8rem 0;
+    font-family: "HelveticaNeueThin"; }
+  section[data-name="store-items"] p {
+    margin: 0 0 3.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.5; }
+  section[data-name="store-items"] div[data-name="items"] {
+    text-align: center; }
+    section[data-name="store-items"] div[data-name="items"] a[data-name="item"] {
+      display: inline-block;
+      text-decoration: none;
+      margin: 0 2rem 3rem 2rem;
+      color: #000000;
+      font-family: "HelveticaNeueRegular";
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      position: relative; }
+      @media (min-width: 64em) {
+        section[data-name="store-items"] div[data-name="items"] a[data-name="item"]:hover {
+          opacity: 0.9;
+          transform: scale(1.1, 1.1); } }
+      section[data-name="store-items"] div[data-name="items"] a[data-name="item"] small {
+        font-size: 0.65rem;
+        display: block;
+        text-align: center;
+        margin: 0.2rem 0;
+        color: #666666; }
+      section[data-name="store-items"] div[data-name="items"] a[data-name="item"] div[data-name="badge"] {
+        width: 4rem;
+        height: 4rem;
+        position: absolute;
+        top: -1rem;
+        left: -1rem;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover; }
+      section[data-name="store-items"] div[data-name="items"] a[data-name="item"] div[data-name="preview"] {
+        width: 15rem;
+        height: 12rem;
+        border-radius: 0.5rem;
+        border: 0.1rem solid #21D000;
+        margin: 0 0 0.5rem 0;
+        background-image: url(/static/assets/images/store/nimble-product.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover; }
+
+main[ng-controller="CheckStatusController"] input {
+  text-align: center; }
+
+footer {
+  width: 100%;
+  min-height: 30rem;
+  background-color: #28FF00;
+  padding: 3rem 1rem;
+  clear: both; }
+  footer h3 {
+    font-size: 2.1rem;
+    display: block;
+    text-align: center;
+    margin: 1rem 0 0.5rem 0; }
+  footer div[data-name="logo"] {
+    width: 8rem;
+    height: 8rem;
+    margin: 0 auto;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(/static/assets/images/footer-logo.png); }
+    @media (max-width: 40em) {
+      footer div[data-name="logo"] {
+        width: 7rem;
+        height: 7rem; } }
+  footer div[data-name="links"] {
+    text-align: center;
+    margin: 0 0 2rem 0; }
+    footer div[data-name="links"] a {
+      color: #000000;
+      text-decoration: none;
+      display: inline-block;
+      margin: 1.5rem;
+      font-size: 0.95rem; }
+      footer div[data-name="links"] a:hover {
+        opacity: 0.6; }
+  footer div[data-name="social"] {
+    max-width: 30rem;
+    margin: 0 auto 2rem auto;
+    width: 95%;
+    text-align: center; }
+    footer div[data-name="social"] > a {
+      display: inline-block;
+      width: 3rem;
+      height: 3rem;
+      margin: 0.5rem 2rem;
+      color: #000000; }
+      @media (max-width: 40em) {
+        footer div[data-name="social"] > a {
+          width: 2rem;
+          height: 2rem;
+          margin: 0.5rem 1.5rem; } }
+      footer div[data-name="social"] > a:hover {
+        opacity: 0.6; }
+      footer div[data-name="social"] > a > div {
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%; }
+      footer div[data-name="social"] > a:nth-child(1) > div {
+        background-image: url(/static/assets/images/social-twitter.png); }
+      footer div[data-name="social"] > a:nth-child(2) > div {
+        background-image: url(/static/assets/images/social-medium.png); }
+      footer div[data-name="social"] > a:nth-child(3) > div {
+        background-image: url(/static/assets/images/social-telegram.png); }
+  footer small {
+    display: block;
+    text-align: center;
+    font-size: 0.95rem;
+    font-family: "HelveticaNeueLight"; }
+    footer small span {
+      font-family: "HelveticaNeueLight"; }
