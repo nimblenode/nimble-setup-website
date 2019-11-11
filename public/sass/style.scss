@@ -167,6 +167,12 @@ div[data-name="popup"] {
       text-align: center;
       padding: 3rem 2rem;
       transition: all 0.3s ease;
+      
+      @media (max-width: $mobile) {
+          width: 90%;
+          margin-left: -45%;
+      }
+
       h3 {
         font-size: 1.3rem;
         margin: 0 auto 1rem auto;
@@ -247,6 +253,12 @@ div[data-name="waitingindicator"] {
       text-align: center;
       padding: 2rem 1rem;
       transition: all 0.3s ease;
+
+      @media (max-width: $mobile) {
+          width: 90%;
+          margin-left: -45%;
+      }
+
       strong {
         font-size: 1.1rem;
       }

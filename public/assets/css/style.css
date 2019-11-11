@@ -119,6 +119,10 @@ div[data-name="popup"] div[data-name="content"] {
   text-align: center;
   padding: 3rem 2rem;
   transition: all 0.3s ease; }
+  @media (max-width: 40em) {
+    div[data-name="popup"] div[data-name="content"] {
+      width: 90%;
+      margin-left: -45%; } }
   div[data-name="popup"] div[data-name="content"] h3 {
     font-size: 1.3rem;
     margin: 0 auto 1rem auto;
@@ -180,6 +184,10 @@ div[data-name="waitingindicator"] div[data-name="content"] {
   text-align: center;
   padding: 2rem 1rem;
   transition: all 0.3s ease; }
+  @media (max-width: 40em) {
+    div[data-name="waitingindicator"] div[data-name="content"] {
+      width: 90%;
+      margin-left: -45%; } }
   div[data-name="waitingindicator"] div[data-name="content"] strong {
     font-size: 1.1rem; }
   div[data-name="waitingindicator"] div[data-name="content"] p {
