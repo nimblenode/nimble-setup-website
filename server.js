@@ -13,7 +13,7 @@ HandlebarsLayouts.register(Handlerbars);
 
 // HTTP Server
 var server = Hapi.server({
-	 	port: 8000,
+	 	port: 8002,
 	  routes: {
 			cors: {
 				credentials: true
