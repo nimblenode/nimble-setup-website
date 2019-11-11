@@ -25,6 +25,7 @@
                 <a href="javascript:void(0);" data-name="sublink" ng-show="!wifipopup.network.showPassword" ng-click="wifipopup.network.showPassword = true">Show Password</a>
                 <a href="javascript:void(0);" data-name="sublink" ng-show="wifipopup.network.showPassword" ng-click="wifipopup.network.showPassword = false">Hide Password</a>
                 <button ng-click="wifipopup.connect()" ng-disabled="!wifipopup.network.password">Connect</button>
+                <a href="javascript:void(0);" data-name="sublink" ng-click="wifipopup.hide()">Close</a>
             </div>
             <div data-name="page" ng-show="wifipopup.page == 2">
                 <h3>Connecting</h3>
