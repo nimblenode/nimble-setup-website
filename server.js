@@ -58,6 +58,7 @@ var initialization = async function() {
 			path: '/',
 			handler: function(request, reply)
 			{
+					console.log(request.info);
 					return reply.view('embed-base', {});
 			}
 	});
