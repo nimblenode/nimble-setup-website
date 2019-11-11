@@ -13,7 +13,7 @@ HandlebarsLayouts.register(Handlerbars);
 
 // HTTP Server
 var server = Hapi.server({
-	 	port: 8000
+	 	port: 8000,
 	  routes: {
 			cors: {
 				credentials: true
@@ -75,7 +75,7 @@ var initialization = async function() {
 	// Attempt to start the HTTP Server
 	try {
 			await server.start();
-			console.log("RUNNING WEBSITE");
+			console.log("NIMBLE SETUP SERVER RUNNING");
 	}
 	catch (err) {
 			process.exit(1);

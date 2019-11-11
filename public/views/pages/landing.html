@@ -1,120 +1,110 @@
-<!-- HEADER -->
 <div ng-include="'/static/views/includes/header.html'"></div>
 
+<main data-name="nimble-setup" ng-controller="LandingController">
+    <section data-name="title">
+        <h1>Nimble Setup</h1>
+    </section>
 
-<main ng-controller="LandingController">
-
-  <!-- INTRODUCTION -->
-  <section data-name="introduction">
-      <div data-name="content">
-          <div data-name="wrapper">
-              <h1>nimble<strong>NODE</strong></h1>
-              <p>The most <strong>affordable</strong>, <strong>portable</strong>, <strong>customizable</strong>, and <strong>nimble</strong> way to run a full node from anywhere in the world.</p>
-              <a href="/store">GET NIMBLE</a>
-              <small>NO DEPOSIT OR PRE-PAYMENT NEEDED!</small>
-              <strong>nimblenode.io is the only authorized seller of nimblenode devices.</strong>
-          </div>
-      </div>
-  </section>
-
-  <!-- SMALLEST AROUND -->
-  <section data-name="smallestaround">
-    <div data-name="content">
-        <div data-name="text">
-            <small>INTRODUCING</small>
-            <h3>The Smallest<br>Full Node Around</h3>
-            <p>Small enough to fit in your pocket, nimbleNODE gives you the ability to run a full node with unparalleled ease. Your <strong>security</strong> and <strong>access to cryptocurrencies</strong> is now jam-packed into a device as small as a dime!</p>
-        </div>
-        <div data-name="preview"></div>
-    </div>
-    <div data-name="previews">
-        <div data-name="preview">
-            <div></div>
-            <p>Micro-SD card slot that can be used to expand storage for bigger chains.</p>
-        </div>
-        <div data-name="preview">
-            <div></div>
-            <p>Fitted heat sink for more efficient air flow and better performance.</p>
-        </div>
-        <div data-name="preview">
-            <div></div>
-            <p>2 USB ports + mini-HDMI for more technical customizations.</p>
+    <div data-name="popup" ng-class="{visible: popup.visible}">
+        <div data-name="background" ng-click="popup.hide()"></div>
+        <div data-name="content">
+            <h3>{{popup.title}}</h3>
+            <p>{{popup.text}}</p>
+            <button ng-click="popup.hide()">Close</button>
         </div>
     </div>
-  </section>
 
-  <!-- PLUG-IN-PLAY -->
-  <section data-name="plugandplay">
-    <div data-name="content">
-        <div data-name="text">
-            <h3>Plug-in-Play Setup</h3>
-            <p>Nowadays you need a PhD in computers just to setup a full node. Some full nodes have countless wires and redundant cables that connect to themselves. All nimbleNODE needs is a single cable, making things as easy as plug-in-play.</p>
-        </div>
-        <div data-name="preview">
-          <video loop muted autoplay>
-                <source src="/static/assets/media/setup.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div data-name="preview-mobile"></div>
-    </div>
-    <div data-name="mobile">
-        <div data-name="text">
-            <h3>A Node Fit for Mobile</h3>
-            <p>With nimbleNODE, ease of use and access is always top priority. Control your nimbleNode completely from your mobile phone.</p>
-            <div data-name="points">
-                <div data-name="point">
-                    <i class="far fa-paper-plane"></i>
-                    <span>Send and receive crypto</span>
-                </div>
-                <div data-name="point">
-                    <i class="far fa-eye"></i>
-                    <span>Monitor your node stats</span>
-                </div>
-                <div data-name="point">
-                    <i class="fas fa-lock"></i>
-                    <span>Secure as they come</span>
-                </div>
+    <div data-name="popup" ng-class="{visible: wifipopup.visible}">
+        <div data-name="background"></div>
+        <div data-name="content">
+            <div data-name="page" ng-show="wifipopup.page == 1">
+                <h3>WiFi Password</h3>
+                <p>Enter the password for <strong>{{wifipopup.network.ssid}}</strong></p>
+                <input type="password" ng-model="wifipopup.network.password" ng-show="!wifipopup.network.showPassword">
+                <input type="text" ng-model="wifipopup.network.password" ng-show="wifipopup.network.showPassword">
+                <a href="javascript:void(0);" data-name="sublink" ng-show="!wifipopup.network.showPassword" ng-click="wifipopup.network.showPassword = true">Show Password</a>
+                <a href="javascript:void(0);" data-name="sublink" ng-show="wifipopup.network.showPassword" ng-click="wifipopup.network.showPassword = false">Hide Password</a>
+                <button ng-click="wifipopup.connect()" ng-disabled="!wifipopup.network.password">Connect</button>
             </div>
-            <div data-name="preview"></div>
-        </div>
-    </div>
-  </section>
-
-  <!-- YOUR FAVORITE COIN -->
-  <section data-name="yourfavoritecoin">
-    <div data-name="content">
-        <div data-name="text">
-            <h3>
-                <span>nimble<strong>NODE</strong></span>
-                <span>+</span>
-                <strong>Your Favorite Coin</strong>
-            </h3>
-            <p>nimbleNODE has love for and is loyal to every coin. Whether it is Bitcoin, Ether, or a coin from your favorite blockchain - nimbleNODE is just what you need. Currently supported coins include:</p>
-        </div>
-        <div data-name="coins">
-            <div data-name="coin">
-                <div></div>
-                <span>BITCOIN</span>
-            </div>
-            <div data-name="coin">
-                <div></div>
-                <span>ETHEREUM</span>
-            </div>
-            <div data-name="coin">
-                <div></div>
-                <span>BITHEREUM</span>
+            <div data-name="page" ng-show="wifipopup.page == 2">
+                <h3>Connecting</h3>
+                <p>The process of connecting to <strong>{{wifipopup.network.ssid}}</strong> may take <strong>up to 1 minute and 30 seconds</strong>. Please do not refresh this window nor disconnect your nimbleNODE.</p>
+                <div data-name="timer">{{wifipopup.timer}}</div>
             </div>
         </div>
-        <p>Support for many more coming soon!</p>
-        <a href="/coinrequest" class="button">REQUEST A COIN</a>
     </div>
-    <div data-name="ourmission">
-        <h3>Our Mission</h3>
-        <p>Nimble is not here to sell you on privacy, self-soverienty, or shill you on coin ideologies. Nimble is here to provide you with a node that does exactly what you need, when you need it. Whether it be proof of stake, better access to a chain, security, or anything in between- <strong>Nimble will always have you covered!</strong></p>
-        <a href="/store" class="button">GET NIMBLE NOW</a>
-    </div>
-  </section>
 
+    <div data-name="waitingindicator" ng-class="{visible: waitingindicator.visible}">
+        <div data-name="background"></div>
+        <div data-name="content">
+            <strong>{{waitingindicator.title}}</strong>
+            <p>{{waitingindicator.text}}</p>
+            <div data-name="indicator"></div>
+        </div>
+    </div>
+
+    <div data-name="steps">
+        <div data-name="step" ng-class="{'current': page == 1, 'done': page > 1, 'upcoming': page < 1}">
+            <div data-name="circle">1</div>
+        </div>
+        <div data-name="step" ng-class="{'current': page == 2, 'done': page > 2, 'upcoming': page < 2}">
+            <div data-name="circle">2</div>
+        </div>
+        <div data-name="step" ng-class="{'current': page == 3, 'done': page > 3, 'upcoming': page < 3}">
+            <div data-name="circle">3</div>
+        </div>
+        <div data-name="step" ng-class="{'current': page == 4, 'done': page > 4, 'upcoming': page < 4}">
+            <div data-name="circle">4</div>
+        </div>
+        <div data-name="step" ng-class="{'current': page == 5, 'done': page > 5, 'upcoming': page < 5}">
+            <div data-name="circle">5</div>
+        </div>
+    </div>
+
+    <div data-name="pages">
+        <div class="page" data-name="page-1" ng-show="page == 1">
+            <div data-name="icon"></div>
+            <p>Welcome to the nimbleNODE setup. This setup will guide you on how to start using your new nimbleNODE.</p>
+            <p><strong>Before starting, please ensure that your nimbleNODE is completely turned off and not plugged in to any power</strong>.</p>
+            <button ng-click="next()">GET STARTED</button>
+            <!-- <div data-name="bottom-message">Already setup your nimbleNode? Check its status <a href="javascript:void(0);">here</a>.</div> -->
+        </div>
+        <div class="page" data-name="page-2" ng-show="page == 2">
+            <div data-name="icon"></div>
+            <p>Insert the SD card into your nimbleNODE. With the SD card fully inserted, plug in the power cable to turn on your nimbleNODE.</p>
+            <p><strong>Wait until the green light on your nimbleNODE stops blinking, before proceeding to the next step.</strong></p>
+            <button ng-click="next()">Continue</button>
+            <a href="javascript:void(0);" ng-click="back()" data-name="back">Back</a>
+            <div data-name="bottom-message">Have questions? Feel free to <a href="https://nimblenode.io/faq" target="_blank">contact us</a>.</div>
+        </div>
+        <div class="page" data-name="page-3" ng-show="page == 3">
+            <div data-name="icon"></div>
+            <p>Please connect this computer to the wifi network named <strong>nimblenode</strong>. Make sure your nimbleNODE is on and nearby.</p>
+            <button ng-click="next()">Continue</button>
+            <a href="javascript:void(0);" ng-click="back()" data-name="back">Back</a>
+            <div data-name="bottom-message">Have questions? Feel free to <a href="https://nimblenode.io/faq" target="_blank">contact us</a>.</div>
+        </div>
+        <div class="page" data-name="page-4" ng-show="page == 4">
+            <div data-name="icon"></div>
+            <p>nimbleNODE uses encryption when communicating with any peripherals. To set this up, please generate your encryption keys.</p>
+            <button ng-click="next()">Generate Keys</button>
+            <a href="javascript:void(0);" ng-click="back()" data-name="back">Back</a>
+            <div data-name="bottom-message">Have questions? Reconnect to wifi and <a href="https://nimblenode.io/support" target="_blank">ask us</a>.</div>
+        </div>
+        <div class="page" data-name="page-5" ng-show="page == 5">
+            <div data-name="icon"></div>
+            <p class="emphasize">Select a wifi network for your nimble:</p>
+            <div data-name="networks">
+                <div data-name="network" ng-click="wifipopup.show(network)" ng-repeat="network in networks">{{network.ssid}}</div>
+            </div>
+            <button ng-click="scanNetworks()">Refresh</button>
+            <a href="javascript:void(0);" ng-click="back()" data-name="back">Back</a>
+            <div data-name="bottom-message">Have questions? Reconnect to wifi and <a href="https://nimblenode.io/support" target="_blank">ask us</a>.</div>
+        </div>
+        <div class="page" data-name="page-6" ng-show="page == 6">
+            <div data-name="icon"></div>
+            <p>Awesome, your nimbleNODE has been successfully configured. You can now disconnect your wifi from your nimbleNODE.</p>
+            <div data-name="bottom-message">Have questions? Feel free to <a href="https://nimblenode.io/faq" target="_blank">contact us</a>.</div>
+        </div>
+    </div>
 </main>
-
-<div ng-include="'/static/views/includes/footer.html'"></div>

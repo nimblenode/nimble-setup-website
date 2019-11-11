@@ -16,7 +16,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
     <link rel="stylesheet" href="/static/assets/css/normalize.css">
     <link rel="stylesheet" href="/static/assets/css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="apple-touch-icon" sizes="57x57" href="/static/assets/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/static/assets/favicons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/static/assets/favicons/apple-icon-72x72.png">
@@ -51,7 +50,7 @@
     <meta property="og:image" content="{{meta.ogimage}}" />
     <meta property="og:description" content="{{meta.ogdescription}}" />
     <meta property="og:site_name" content="{{meta.ogtitle}}" />
-    
+
     <!-- Prevent HTML display until Angular has loaded -->
     <style>
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -62,18 +61,8 @@
 <body ng-app="Application" ng-cloak>
     {{#block "body"}}
         <div ng-view autoscroll="true"></div>
-        <div ng-show="isLoadingIndicatorShown" class="loading-indicator">
-            <div class="spinner">
-                <div class="double-bounce1"></div>
-                <div class="double-bounce2"></div>
-            </div>
-            <div class="spinner-text">
-                <p ng-bind="LoadingIndicatorText"></p>
-            </div>
-        </div>
     {{/block}}
-    <script src="//code.jquery.com/jquery-latest.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/static/assets/js/jquery/jquery-3.3.1.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="/static/assets/js/jquery-3.3.1/jquery-3.3.1.min.js"><\/script>')</script>
     <script src="/static/assets/js/angular-1.6.9/angular.min.js"></script>
     <script src="/static/assets/js/angular-1.6.9/angular-route.min.js"></script>
     <script src="/static/assets/js/angular-1.6.9/angular-sanitize.min.js"></script>
@@ -81,12 +70,12 @@
     <script src="/static/assets/js/app/controllers.js"></script>
     <script src="/static/assets/js/app/init.js"></script>
     {{#block "scripts"}}{{/block}}
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139825854-1"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139825854-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'UA-139825854-1');
-    </script>
+    </script> -->
 </body>
 </html>
