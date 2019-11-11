@@ -334,10 +334,15 @@ main[data-name="nimble-setup"] {
         max-width: 50rem;
         text-align: center;
         margin: 0 auto;
+        width: 95%;
         div[data-name="step"] {
             display: inline-block;
             text-align: center;
             margin: 1rem 2.5rem;
+            @media (max-width: $mobile) {
+                margin: 1rem 0.5rem;
+            }
+
             div[data-name="circle"] {
                 width: 2.8rem;
                 height: 2.8rem;
@@ -348,6 +353,11 @@ main[data-name="nimble-setup"] {
                 text-align: center;
                 color: #000000;
                 margin: 0 auto 0.5rem auto;
+                @media (max-width: $mobile) {
+                    width: 2.2rem;
+                    height: 2.2rem;
+                    padding: 0.4rem 0 0 0;
+                }
             }
             &.upcoming {
               opacity: 0.3;

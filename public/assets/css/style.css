@@ -253,11 +253,15 @@ section[data-name="title"] {
 main[data-name="nimble-setup"] div[data-name="steps"] {
   max-width: 50rem;
   text-align: center;
-  margin: 0 auto; }
+  margin: 0 auto;
+  width: 95%; }
   main[data-name="nimble-setup"] div[data-name="steps"] div[data-name="step"] {
     display: inline-block;
     text-align: center;
     margin: 1rem 2.5rem; }
+    @media (max-width: 40em) {
+      main[data-name="nimble-setup"] div[data-name="steps"] div[data-name="step"] {
+        margin: 1rem 0.5rem; } }
     main[data-name="nimble-setup"] div[data-name="steps"] div[data-name="step"] div[data-name="circle"] {
       width: 2.8rem;
       height: 2.8rem;
@@ -268,6 +272,11 @@ main[data-name="nimble-setup"] div[data-name="steps"] {
       text-align: center;
       color: #000000;
       margin: 0 auto 0.5rem auto; }
+      @media (max-width: 40em) {
+        main[data-name="nimble-setup"] div[data-name="steps"] div[data-name="step"] div[data-name="circle"] {
+          width: 2.2rem;
+          height: 2.2rem;
+          padding: 0.4rem 0 0 0; } }
     main[data-name="nimble-setup"] div[data-name="steps"] div[data-name="step"].upcoming {
       opacity: 0.3; }
       main[data-name="nimble-setup"] div[data-name="steps"] div[data-name="step"].upcoming div[data-name="circle"] {
