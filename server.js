@@ -58,12 +58,7 @@ var initialization = async function() {
 			path: '/',
 			handler: function(request, reply)
 			{
-					if (request.query.http) {
-						 	return reply.redirect("http://setup.nimblenode.io/")
-					}
-					else {
-							return reply.view('embed-base', {});
-					}
+					return reply.view('embed-base', {});
 			}
 	});
 

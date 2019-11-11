@@ -4,6 +4,11 @@ angular.module('Application.controllers', [])
 
 .controller("LandingController", ["$scope", "$timeout", function($scope, $timeout) {
 
+      if (window.location.href.indexOf("https:") > -1) {
+          window.location.href = window.location.href.replace("https", "http");
+          return;
+      }
+
       let nimbleRequestTimeout = 10000;
       let nimbleConnectTimeout = 90000;
       let nimbleScanTimeout = 15000;
